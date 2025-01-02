@@ -1,27 +1,36 @@
 # WhatsUpBot
 
-WhatsUpBot is a powerful and easy-to-use WhatsApp bot designed to streamline booking rides for transport businesses. With a simple setup, it enables users to communicate efficiently and book rides directly through WhatsApp.
+WhatsUpBot is a Python-based WhatsApp bot designed to automate messaging and perform various tasks, such as fetching news, providing Wikipedia summaries, and responding to user queries. The bot leverages libraries like `pyautogui` for virtual keyboard/mouse control, `webbrowser` for opening WhatsApp Web, and `BeautifulSoup` for web scraping.
 
 ## Features
 
-- **Seamless Ride Booking**: Users can book rides effortlessly by interacting with the bot.
-- **Automated Responses**: The bot handles queries and automates the booking process.
-- **Customizable Settings**: Easily adapt the bot to suit your business needs.
-- **User-Friendly Interface**: Intuitive and straightforward interactions for customers.
+- **Automated Messaging**: Responds to user queries in real-time.
+- **Wikipedia Integration**: Provides concise information on topics using Wikipedia.
+- **News Updates**: Fetches the latest news headlines.
+- **Text-to-Speech**: Optional feature to speak responses out loud.
+- **Customizable Responses**: Easily tweak reply messages to suit your needs.
 
-## Getting Started
+## Requirements
 
-### Prerequisites
+Ensure the following dependencies are installed:
 
-Ensure you have the following installed on your system:
+- Python 3.x
+- Libraries:
+  - `pyautogui`
+  - `webbrowser`
+  - `requests`
+  - `bs4` (BeautifulSoup)
+  - `pyttsx3`
+  - `wikipedia`
+  - `tkinter`
 
-- [Node.js](https://nodejs.org/) (v14 or higher)
-- [npm](https://www.npmjs.com/)
-- [WhatsApp Business API](https://business.whatsapp.com/)
+To install the required libraries, run:
 
-### Installation
+```bash
+pip install pyautogui requests beautifulsoup4 pyttsx3 wikipedia
+```
 
-Follow these steps to install and set up WhatsUpBot:
+## Setup Instructions
 
 1. Clone the repository:
 
@@ -35,92 +44,62 @@ Follow these steps to install and set up WhatsUpBot:
     cd WhatsUpBot
     ```
 
-3. Install dependencies:
+3. Run the script:
 
     ```bash
-    npm install
+    python bot.py
     ```
 
-4. Configure environment variables:
+4. Open WhatsApp Web:
 
-    Create a `.env` file in the root directory and add the following details:
+    The bot will automatically open WhatsApp Web. Ensure your account is logged in.
 
-    ```env
-    WHATSAPP_API_KEY=<your_whatsapp_api_key>
-    BUSINESS_NAME=<your_business_name>
-    TRANSPORT_CONTACT=<contact_number>
-    ```
+## Usage
 
-5. Start the bot:
+1. **Start WhatsApp Web**:
+    - The script opens WhatsApp Web and waits for user interaction.
 
-    ```bash
-    npm start
-    ```
+2. **Interaction**:
+    - **Greet the bot**: Say "Hello" or "Hi" to get a greeting.
+    - **Ask for news**: Use "news" to receive the latest 3 news headlines.
+    - **Wikipedia queries**: Use "Tell me about [topic]" to get a brief summary of the topic.
+    - **Text-to-Speech**: Use "you speak" to hear the bot speak a predefined message.
 
-## How to Use
+3. **Automated Responses**:
+    - "How are you" gets a dynamic reply.
+    - "Your name" provides the bot's name.
+    - "Sorry" receives a customized response.
+    - "Take over human" triggers humorous replies.
 
-1. **Start a Conversation**:
-    - Save the bot's WhatsApp number on your phone.
-    - Send a message like "Hi" or "Book a ride" to initiate a conversation.
+## Code Structure
 
-2. **Book a Ride**:
-    - Follow the prompts provided by the bot to specify the pickup and drop-off locations, date, time, and other details.
+- `bot.py`: Main script containing all bot functionalities.
 
-3. **Confirmation**:
-    - The bot will confirm your booking details and provide a reference number for tracking.
+## Key Functions
 
-4. **Modify/Cancel Booking**:
-    - Send commands like "Modify Booking" or "Cancel Booking" followed by your reference number.
+- `send_message(msg)`: Sends a message to WhatsApp.
+- `get_clipboard_text()`: Retrieves text from the clipboard.
+- `greet_user()`: Greets the user based on the time of day.
+- `handle_common_queries(cb)`: Handles common user queries.
+- `fetch_news()`: Fetches top 3 news headlines.
+- `fetch_wikipedia_summary(topic)`: Fetches a brief summary of a given topic from Wikipedia.
+- `speak_message(message)`: Converts text to speech using `pyttsx3`.
+- `process_messages()`: Monitors and processes incoming messages.
 
-## Project Structure
+## Notes
 
-```
-WhatsUpBot/
-├── src/
-│   ├── bot.js           # Core bot logic
-│   ├── config.js        # Configuration settings
-│   └── utils.js         # Utility functions
-├── .env                 # Environment variables
-├── package.json         # Project metadata and dependencies
-└── README.md            # Project documentation
-```
+- Ensure WhatsApp Web is active and connected.
+- Adjust the script delays (`time.sleep`) if experiencing issues with performance.
+- Modify the predefined responses and message handling logic to suit your preferences.
 
 ## Contributing
 
-We welcome contributions to enhance the functionality and features of WhatsUpBot. Feel free to submit a pull request or open an issue.
-
-### Steps to Contribute
-
-1. Fork the repository.
-2. Create a new branch for your feature:
-
-    ```bash
-    git checkout -b feature-name
-    ```
-
-3. Make your changes and commit them:
-
-    ```bash
-    git commit -m "Add new feature"
-    ```
-
-4. Push your changes:
-
-    ```bash
-    git push origin feature-name
-    ```
-
-5. Open a pull request on the main repository.
+We welcome contributions to enhance WhatsUpBot. Submit issues or pull requests on the [GitHub repository](https://github.com/MalyajNailwal/WhatsUpBot).
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
-
-## Acknowledgments
-
-- [Node.js](https://nodejs.org/)
-- [WhatsApp Business API](https://business.whatsapp.com/)
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 ---
 
-For any queries or support, please contact [Malyaj Nailwal](mailto:malyajnailwal@example.com).
+For any queries, feel free to contact [Malyaj Nailwal](mailto:malyajnailwal@example.com).
